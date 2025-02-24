@@ -45,9 +45,16 @@ class UserController extends Controller
     {
         $user = Auth::user();
 
+        $response = [
+            'id' => $user->id,
+            'name' => $user->name,
+            'email' => $user->email,
+            'state' => $user->state->name,
+            'ads' => $user->advertises
+        ];
 
 
 
-        return response()->json($user);
+        return response()->json($response);
     }
 }

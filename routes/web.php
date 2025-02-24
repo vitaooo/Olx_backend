@@ -16,7 +16,7 @@ Route::get('categories', [CategoriesController::class, 'index']);
 
 Route::post('user/signup', [UserController::class, 'signup'])->withoutMiddleware(VerifyCsrfToken::class);
 Route::post('user/signin', [UserController::class, 'signin'])->withoutMiddleware(VerifyCsrfToken::class);
-Route::get('user/me', [UserController::class, 'me'])->withoutMiddleware(VerifyCsrfToken::class)->middleware('auth:sanctum');
+Route::get('user/me', [UserController::class, 'me'])->middleware('auth:sanctum');
 
 /**
  * [X] /ping - responde com pong
